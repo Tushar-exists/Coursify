@@ -2,7 +2,7 @@
 
 Turn YouTube playlists into **focused courses** for studying — with syllabus, progress, and notes.
 
-![Coursify](public/assets/coursify-brand.png)
+![Coursify](public/assets/coursify-readme.png)
 
 ## Features
 

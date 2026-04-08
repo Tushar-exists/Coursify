@@ -1,0 +1,12 @@
+{
+  "name": "yt-playlist-courses",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Turn YouTube playlists into course-like pages with progress tracking.",
+  "scripts": {
+    "dev": "node --watch server.mjs",
+    "start": "node server.mjs"
+  }
+}
+

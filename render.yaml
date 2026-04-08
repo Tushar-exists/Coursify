@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: coursify
+    env: node
+    plan: free
+    buildCommand: ""
+    startCommand: node server.mjs
+    healthCheckPath: /api/health
+    envVars:
+      - key: YT_API_KEY
+        sync: false

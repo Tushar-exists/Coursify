@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Course - Coursify</title>
+    <meta name="description" content="Course player with syllabus and progress tracking." />
+    <meta name="theme-color" content="#0B1020" />
+    <link rel="icon" href="/assets/coursify-icon.png?v=2" type="image/png" />
+    <link rel="stylesheet" href="/app.css?v=9" />
+  </head>
+  <body>
+    <div class="bgGrid"></div>
+    <header class="nav">
+      <div class="container navInner">
+        <a class="logo" href="/">
+          <img class="logoMark" src="/assets/coursify-icon.png?v=2" width="28" height="28" alt="" />
+          <span class="logoText">Coursify</span>
+        </a>
+        <div class="navRight">
+          <div class="navPill" id="coursePill">Course</div>
+          <a class="navPill" href="/" title="Import a new playlist">New import</a>
+          <a class="navPill" href="/dashboard.html">Dashboard</a>
+          <a class="navPill" href="/about.html">About</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container coursePage">
+      <div id="loading" class="panel panelLoading">
+        <div class="panelTop">
+          <div>
+            <div class="panelLabel">Preparing</div>
+            <div class="panelTitle">Building your course</div>
+          </div>
+          <div class="chip">Fetching playlist</div>
+        </div>
+        <div class="skeletonGrid" aria-hidden="true">
+          <div class="sk skLg"></div>
+          <div class="sk skMd"></div>
+          <div class="sk skMd"></div>
+          <div class="sk skMd"></div>
+        </div>
+        <div class="muted">If this takes long, your playlist might be private or quota-limited.</div>
+      </div>
+
+      <div id="course" class="courseShell2" style="display:none;">
+        <aside class="sidePanel" id="sidePanel">
+          <div class="sideHead">
+            <div>
+              <div class="panelLabel">Course</div>
+              <h1 class="titleM" id="courseTitle">—</h1>
+            </div>
+            <button class="iconBtn" id="sideToggleBtn" title="Collapse syllabus" aria-label="Collapse syllabus">
+              ☰
+            </button>
+          </div>
+
+          <div class="progressCard">
+            <div class="progressLeft">
+              <div class="progressPct" id="pct">0%</div>
+              <div class="muted" id="meta">—</div>
+            </div>
+            <div class="progressBar2" aria-hidden="true">
+              <div id="barFill"></div>
+            </div>
+          </div>
+
+          <div class="sideTools2">
+            <input id="searchInput" class="input inputSm" placeholder="Search lessons..." />
+            <div class="seg">
+              <button class="segBtn" id="showAllBtn">All</button>
+              <button class="segBtn" id="showTodoBtn">Todo</button>
+            </div>
+          </div>
+
+          <div class="list2" id="list"></div>
+          <div class="sideFoot muted">Progress is saved on this device.</div>
+        </aside>
+
+        <section class="playerPanel">
+          <div class="playerHeader">
+            <div class="playerTitle">
+              <div class="panelLabel">Now playing</div>
+              <div class="titleM" id="videoTitle">Select a lesson</div>
+              <div class="muted" id="videoMeta">—</div>
+            </div>
+            <div class="playerActions">
+              <button class="btnGhost" id="prevBtn" disabled>Prev</button>
+              <button class="btnGhost" id="nextBtn" disabled>Next</button>
+              <button class="btnGhost" id="toggleDoneBtn" disabled>Mark done</button>
+              <button class="btnGhost" id="focusBtn" title="Toggle focus mode">Focus</button>
+              <button class="btnGhost btnDanger" id="resetBtn" title="Reset completion for this course">Reset</button>
+            </div>
+          </div>
+
+          <div class="videoShell2">
+            <div id="playerMount"></div>
+          </div>
+
+          <div class="notePanel">
+            <div class="noteTop">
+              <div>
+                <div class="panelLabel">Notes</div>
+                <div class="panelTitle">Keep learning notes</div>
+              </div>
+              <div class="noteActions">
+                <select class="select" id="speedSelect" title="Playback speed">
+                  <option value="0.75">0.75x</option>
+                  <option value="1" selected>1x</option>
+                  <option value="1.25">1.25x</option>
+                  <option value="1.5">1.5x</option>
+                  <option value="1.75">1.75x</option>
+                  <option value="2">2x</option>
+                </select>
+                <button class="btnGhost" id="addStampBtn" disabled>Add timestamp</button>
+                <button class="btnGhost" id="copyLessonBtn" disabled>Copy lesson link</button>
+                <a class="btnGhost" id="openYtBtn" href="#" target="_blank" rel="noreferrer noopener">Open YouTube</a>
+              </div>
+            </div>
+            <div class="bookmarks" id="bookmarks" style="display:none;"></div>
+            <textarea
+              id="notesInput"
+              class="textarea"
+              placeholder="Write notes for this lesson… (autosaves)"
+              disabled
+            ></textarea>
+          </div>
+
+          <div id="err"></div>
+        </section>
+      </div>
+
+      <footer class="siteFooter">
+        <div class="muted">Tip: private/deleted videos are skipped.</div>
+        <div class="footerLinks">
+          <a class="link" href="/about.html">About</a>
+          <a class="link" href="/">Home</a>
+          <a class="link" href="/dashboard.html">Dashboard</a>
+        </div>
+      </footer>
+    </main>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="/course.js?v=9"></script>
+    <div class="toastHost" id="toastHost" aria-live="polite" aria-atomic="true"></div>
+  </body>
+</html>

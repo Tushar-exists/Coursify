@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Coursify</title>
+    <meta name="description" content="Coursify turns YouTube playlists into clean, course-like study sessions with progress and notes." />
+    <meta name="theme-color" content="#0B1020" />
+    <link rel="icon" href="/assets/coursify-icon.png?v=2" type="image/png" />
+    <meta property="og:title" content="Coursify" />
+    <meta property="og:description" content="Turn YouTube playlists into focused courses with progress and notes — free for students." />
+    <meta property="og:image" content="/assets/coursify-icon.png?v=2" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="/app.css?v=9" />
+  </head>
+  <body>
+    <div class="bgGrid"></div>
+    <header class="nav">
+      <div class="container navInner">
+        <a class="logo" href="/">
+          <img class="logoMark" src="/assets/coursify-icon.png?v=2" width="28" height="28" alt="" />
+          <span class="logoText">Coursify</span>
+        </a>
+        <div class="navRight">
+          <a class="navLink" href="#how">How it works</a>
+          <a class="navLink" href="#features">Features</a>
+          <a class="navPill" href="/dashboard.html">Dashboard</a>
+          <a class="navPill" href="/course.html" title="Open course with URL params">Open course</a>
+          <a class="navPill" href="/about.html">About</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero2">
+        <div class="heroLeft">
+          <div class="kicker">Free for students</div>
+          <h1 class="titleXL">
+            Turn playlists into
+            <span class="gradText">focused courses.</span>
+          </h1>
+          <p class="lead2">
+            Paste any playlist link and get a clean study flow: syllabus, progress, notes, and a focused player.
+            Always free.
+          </p>
+          <div class="heroStats" aria-label="Highlights">
+            <div class="stat">
+              <div class="statNum">1</div>
+              <div class="statText">Paste playlist</div>
+            </div>
+            <div class="stat">
+              <div class="statNum">2</div>
+              <div class="statText">Open course</div>
+            </div>
+            <div class="stat">
+              <div class="statNum">3</div>
+              <div class="statText">Track progress</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="heroRight">
+          <div class="panel">
+            <div class="panelTop">
+              <div>
+                <div class="panelLabel">Create a course</div>
+                <div class="panelTitle">Import a playlist</div>
+              </div>
+              <div class="chip">Public playlists</div>
+            </div>
+            <div class="panelForm">
+              <label class="srOnly" for="playlistInput">YouTube playlist URL</label>
+              <input
+                id="playlistInput"
+                class="input inputLg"
+                placeholder="https://www.youtube.com/playlist?list=..."
+                autocomplete="off"
+              />
+              <button id="createBtn" class="btnPrimary">
+                <span>Create course</span>
+                <span aria-hidden="true" class="btnArrow">→</span>
+              </button>
+            </div>
+          <div class="panelHint">
+            <span class="muted" id="hint">Tip: unlisted playlists usually work too.</span>
+            <a class="link" href="/dashboard.html" title="Open dashboard">Go to dashboard</a>
+          </div>
+            <div id="msg"></div>
+          </div>
+
+          <div class="miniCards">
+            <div class="miniCard">
+              <div class="miniIcon" aria-hidden="true">✓</div>
+              <div>
+                <div class="miniTitle">Auto-complete</div>
+                <div class="miniDesc">Marks a lesson done when it ends.</div>
+              </div>
+            </div>
+            <div class="miniCard">
+              <div class="miniIcon" aria-hidden="true">↻</div>
+              <div>
+                <div class="miniTitle">Resume</div>
+                <div class="miniDesc">Opens where you left off on this device.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="sectionHead">
+          <h2 class="titleL">Built for studying</h2>
+          <p class="muted">A clean learning flow that feels like a real course platform.</p>
+        </div>
+        <div class="featureGrid">
+          <div class="featureCard">
+            <div class="featureTop">
+              <div class="featureIcon" aria-hidden="true">▦</div>
+              <div class="featureTitle">Syllabus that scrolls</div>
+            </div>
+            <div class="featureDesc">Search, filter, and jump between lessons instantly.</div>
+          </div>
+          <div class="featureCard">
+            <div class="featureTop">
+              <div class="featureIcon" aria-hidden="true">◔</div>
+              <div class="featureTitle">Progress percentage</div>
+            </div>
+            <div class="featureDesc">Simple, reliable completion tracking with reset controls.</div>
+          </div>
+          <div class="featureCard">
+            <div class="featureTop">
+              <div class="featureIcon" aria-hidden="true">⟐</div>
+              <div class="featureTitle">Premium UI</div>
+            </div>
+            <div class="featureDesc">SaaS-style layout, crisp typography, and smooth interactions.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="how" class="section">
+        <div class="sectionHead">
+          <h2 class="titleL">How it works</h2>
+          <p class="muted">No extensions, no messy watch history. Just paste and learn.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="stepNum">1</div>
+            <div>
+              <div class="stepTitle">Paste a playlist URL</div>
+              <div class="stepDesc">We fetch the playlist and build a course syllabus.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="stepNum">2</div>
+            <div>
+              <div class="stepTitle">Watch inside the course</div>
+              <div class="stepDesc">Use Prev/Next, mark done, and auto-complete on end.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="stepNum">3</div>
+            <div>
+              <div class="stepTitle">Keep your progress</div>
+              <div class="stepDesc">Progress is saved on your device. Login sync can be added next.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="siteFooter">
+        <div class="muted">
+          Free for personal learning. Respect creators. No account needed.
+        </div>
+        <div class="footerLinks">
+          <a class="link" href="/about.html">About</a>
+          <a class="link" href="/dashboard.html">Dashboard</a>
+          <a class="link" href="/course.html">Course</a>
+        </div>
+      </footer>
+    </main>
+
+    <script src="/app.js?v=9"></script>
+  </body>
+</html>

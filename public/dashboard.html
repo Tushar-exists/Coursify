@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard - Coursify</title>
+    <meta name="description" content="Your saved courses with progress tracking." />
+    <meta name="theme-color" content="#0B1020" />
+    <link rel="icon" href="/assets/coursify-icon.png?v=2" type="image/png" />
+    <link rel="stylesheet" href="/app.css?v=9" />
+  </head>
+  <body>
+    <div class="bgGrid"></div>
+    <header class="nav">
+      <div class="container navInner">
+        <a class="logo" href="/">
+          <img class="logoMark" src="/assets/coursify-icon.png?v=2" width="28" height="28" alt="" />
+          <span class="logoText">Coursify</span>
+        </a>
+        <div class="navRight">
+          <a class="navLink" href="/">Home</a>
+          <a class="navPill" href="/course.html">Open course</a>
+          <a class="navPill" href="/about.html">About</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container appMain">
+      <section class="appHeader">
+        <div>
+          <div class="panelLabel">Dashboard</div>
+          <h1 class="titleXL" style="font-size:38px; margin:6px 0 0;">Your courses</h1>
+          <p class="lead2" style="margin-top:10px;">Import playlists, resume instantly, and track progress cleanly.</p>
+        </div>
+        <div class="panel" style="max-width:520px;">
+          <div class="panelTop">
+            <div>
+              <div class="panelLabel">Add course</div>
+              <div class="panelTitle">Import playlist</div>
+            </div>
+            <div class="chip">YT playlists</div>
+          </div>
+          <div class="panelForm">
+            <label class="srOnly" for="playlistInput">YouTube playlist URL</label>
+            <input id="playlistInput" class="input inputLg" placeholder="https://www.youtube.com/playlist?list=..." />
+            <button id="importBtn" class="btnPrimary">
+              <span>Import</span>
+              <span aria-hidden="true" class="btnArrow">→</span>
+            </button>
+          </div>
+          <div id="importMsg"></div>
+          <div class="panelHint">
+            <span class="muted">Tip: unlisted playlists often work.</span>
+            <a class="link" href="/course.html">Advanced</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="appTools">
+        <input id="courseSearch" class="input" placeholder="Search courses..." />
+        <div class="seg" style="max-width: 360px;">
+          <button class="segBtn" id="sortRecentBtn">Recent</button>
+          <button class="segBtn" id="sortNameBtn">Name</button>
+          <button class="segBtn" id="sortProgressBtn">Progress</button>
+        </div>
+        <div class="appDataTools">
+          <button class="btnGhost" id="exportBtn" title="Download your courses/progress/notes">Export</button>
+          <label class="btnGhost" for="importFile" title="Import a previously exported file" style="cursor:pointer;">
+            Import
+          </label>
+          <input id="importFile" type="file" accept="application/json" style="display:none;" />
+        </div>
+      </section>
+
+      <section>
+        <div class="cardsHead">
+          <div class="titleL">Saved</div>
+          <div class="muted" id="cardsMeta">—</div>
+        </div>
+        <div class="courseCards" id="cards"></div>
+        <div class="emptyState" id="empty" style="display:none;">
+          <div class="emptyIcon" aria-hidden="true">▣</div>
+          <div class="emptyTitle">No courses yet</div>
+          <div class="emptyDesc">Import a YouTube playlist to create your first course.</div>
+        </div>
+      </section>
+
+      <footer class="siteFooter">
+        <div class="muted">This dashboard stores courses on this device (no account needed).</div>
+        <div class="footerLinks">
+          <a class="link" href="/">Landing</a>
+          <a class="link" href="/course.html">Course</a>
+          <a class="link" href="/about.html">About</a>
+        </div>
+      </footer>
+    </main>
+
+    <div class="toastHost" id="toastHost" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="/dashboard.js?v=9"></script>
+  </body>
+</html>

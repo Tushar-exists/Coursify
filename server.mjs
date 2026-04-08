@@ -299,7 +299,7 @@ server.on("error", (err) => {
   process.exit(1);
 });
 
-// Listen on IPv6 any; typically accepts IPv4 too (v4-mapped), improving edge connectivity.
-server.listen(PORT, "::", () => {
+// Render/Cloudflare connects over IPv4; bind explicitly.
+server.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT} (node ${process.version})`);
 });

@@ -15,36 +15,41 @@ Turn YouTube playlists into **focused courses** for studying — with a clean sy
 - **Export/Import**: move your progress/notes between devices (JSON)
 - **Free + no account**: everything stored in your browser (localStorage)
 
-## How It Works
+## How to use
 
-1) Paste a YouTube playlist link  
-2) Coursify builds a course view (lessons + player)  
+1) Paste a YouTube playlist link
+2) Coursify builds a course view (lessons + player)
 3) Watch, take notes, and track progress — distraction-free
-
-## How To Use
-
-- **Import**: open the Dashboard and paste a playlist URL
-- **Study**: use Prev/Next, mark lessons done, and add timestamps to your notes
-- **Resume**: come back anytime — progress is saved on this device
-- **Move to another device**: Dashboard → Export on one device, Import on another
 
 ## Privacy
 
 - No accounts.
 - Progress, notes, and saved courses are stored locally in your browser (localStorage).
-- Export/Import is optional and stays on your device (it downloads/uploads a JSON file).
+- Export/Import stays on your device (download/upload a JSON file).
 
 ## Limitations
 
-- Some videos cannot be embedded (uploader restrictions). Use **Open YouTube** in the course when that happens.
+- Some videos can’t be embedded (uploader restrictions). Use **Open YouTube** in the course when that happens.
 - Playlist imports depend on YouTube Data API quota limits.
+
+## Deploy (free) on Cloudflare Pages
+
+Cloudflare Pages is the recommended free host (fast, always-on; no cold-start “server down” issues).
+
+1) Cloudflare Dashboard → **Workers & Pages** → **Create application** → **Pages**
+2) Connect this GitHub repo
+3) Build settings:
+   - Framework preset: **None**
+   - Build command: *(empty)*
+   - Output directory: `public`
+4) In **Settings → Environment variables**, add `YT_API_KEY`
+5) Redeploy and open your Pages URL
 
 ## Self-hosting (optional)
 
-Coursify is a small Node server + static frontend.
+Coursify also runs as a small Node server + static frontend.
 
 - Requirements: Node.js 18+ and a YouTube Data API v3 key
 - Set `YT_API_KEY` as an environment variable
 - Start: `node server.mjs`
 
-If you’re deploying to Render, this repo includes `render.yaml` + a `Dockerfile`.

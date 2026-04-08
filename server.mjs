@@ -241,6 +241,16 @@ async function serveStatic(req, res, pathname) {
   }
 }
 
+process.on("unhandledRejection", (reason) => {
+  // eslint-disable-next-line no-console
+  console.error("unhandledRejection", reason);
+});
+process.on("uncaughtException", (err) => {
+  // eslint-disable-next-line no-console
+  console.error("uncaughtException", err);
+  process.exit(1);
+});
+
 const server = createServer(async (req, res) => {
   setSecurityHeaders(res);
   res.setHeader("Server", "yt-playlist-courses");
@@ -283,6 +293,13 @@ const server = createServer(async (req, res) => {
   await serveStatic(req, res, pathname);
 });
 
-server.listen(PORT, "0.0.0.0", () => {
+server.on("error", (err) => {
+  // eslint-disable-next-line no-console
+  console.error("server error", err);
+  process.exit(1);
+});
+
+// Listen on IPv6 any; typically accepts IPv4 too (v4-mapped), improving edge connectivity.
+server.listen(PORT, "::", () => {
   console.log(`Server running on port ${PORT} (node ${process.version})`);
 });
